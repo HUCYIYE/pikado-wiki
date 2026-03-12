@@ -1,0 +1,453 @@
+.wiki-main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.wiki-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #667eea;
+}
+
+.wiki-header h2 {
+    color: #667eea;
+    font-size: 2.2rem;
+    margin: 0;
+}
+
+.add-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+}
+
+.posts-container {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .posts-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.no-posts {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 3rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border: 2px dashed #ddd;
+}
+
+.post-item {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.post-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.post-body {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.post-left {
+    flex-shrink: 0;
+}
+
+.post-right {
+    flex: 1;
+    min-width: 0;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.post-title {
+    color: #667eea;
+    font-size: 1.3rem;
+    margin: 0;
+    flex: 1;
+}
+
+.post-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.post-time {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.delete-btn {
+    background: #ff4757;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background 0.3s;
+}
+
+.delete-btn:hover {
+    background: #ff3742;
+}
+
+.post-content {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    white-space: pre-wrap;
+}
+
+.post-images {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.post-image {
+    width: 80px !important;
+    height: 80px !important;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.post-image:hover {
+    transform: scale(1.05);
+}
+
+/* 详情模态框 */
+.detail-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-title {
+    color: #667eea;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+.modal-image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.modal-description {
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 点赞系统样式 */
+.post-rating {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+.like-btn, .dislike-btn {
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.like-btn:hover {
+    background: #e8f5e8;
+    border-color: #28a745;
+    color: #28a745;
+}
+
+.dislike-btn:hover {
+    background: #ffeaea;
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.like-btn.active {
+    background: #28a745;
+    color: white;
+    border-color: #28a745;
+}
+
+.dislike-btn.active {
+    background: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}
+
+#postImagePreview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.wiki-content {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.content-view {
+    line-height: 1.8;
+    color: #333;
+}
+
+.content-view h1, .content-view h2, .content-view h3 {
+    color: #667eea;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.content-view img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 1rem 0;
+}
+
+.content-edit {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input[type="text"]:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+    transition: border-color 0.3s;
+}
+
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.form-group input[type="file"] {
+    display: none;
+}
+
+.file-drop-zone {
+    width: 100%;
+    padding: 2rem;
+    border: 2px dashed #667eea;
+    border-radius: 10px;
+    background: #f8f9fa;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s;
+    color: #667eea;
+    font-weight: 500;
+}
+
+.file-drop-zone:hover, .file-drop-zone.drag-over {
+    background: #667eea;
+    color: white;
+    border-color: #764ba2;
+    transform: scale(1.02);
+}
+
+#imagePreview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.preview-item {
+    position: relative;
+}
+
+.preview-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.remove-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #ff4757;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.edit-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.save-btn {
+    background: linear-gradient(135deg, #2ed573 0%, #17a2b8 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.save-btn:hover {
+    transform: translateY(-2px);
+}
+
+.cancel-btn {
+    background: linear-gradient(135deg, #ff4757 0%, #ff3742 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.cancel-btn:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .wiki-main {
+        padding: 1rem;
+    }
+    
+    .wiki-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .edit-actions {
+        flex-direction: column;
+    }
+}

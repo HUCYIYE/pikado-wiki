@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>皮卡堂维基百科</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>皮卡堂维基百科</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">首页</a></li>
+                <li><a href="pages/community.html">社区</a></li>
+                <li><a href="pages/profile.html">我的</a></li>
+                <li><button id="themeToggle" class="theme-toggle">🌙</button></li>
+                <li><button id="exportData" class="export-btn">💾 导出</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="heroSection" class="hero">
+            <div class="hero-content">
+                <h2>欢迎来到皮卡堂维基百科</h2>
+                <p>这里是皮卡堂游戏的完整资料库，包含衣服信息、家具详情、食物制作等内容。</p>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="搜索衣服、家具、食物...">
+                    <button onclick="search()">搜索</button>
+                    <button onclick="clearCache()" style="background: #ff6b6b; margin-left: 10px;">清除缓存</button>
+                </div>
+            </div>
+            <input type="file" id="backgroundInput" accept="image/*" style="display: none;">
+        </section>
+
+        <div class="main-layout">
+            <section class="featured-content">
+                <h3>热门内容</h3>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <a href="https://www.pktgf.top" target="_blank">
+                            <div class="card-image-container">
+                                <img src="images/clothes-placeholder.jpg" alt="衣服">
+                            </div>
+                            <div class="card-content">
+                                <h4>衣服图鉴</h4>
+                                <p>查看所有皮卡堂衣服的详细信息</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="content-card">
+                        <a href="pages/wiki-template.html?type=furniture">
+                            <div class="card-image-container">
+                                <img src="images/furniture-placeholder.jpg" alt="家具" class="card-image">
+                            </div>
+                            <div class="card-content">
+                                <h4>家具大全</h4>
+                                <p>完整的家具列表和获取方法</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="content-card">
+                        <a href="pages/wiki-template.html?type=food">
+                            <div class="card-image-container">
+                                <img src="images/food-placeholder.jpg" alt="食物" class="card-image">
+                            </div>
+                            <div class="card-content">
+                                <h4>食物大全</h4>
+                                <p>各种美味食物的制作方法</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="content-card">
+                        <a href="pages/wiki-template.html?type=fish">
+                            <div class="card-image-container">
+                                <img src="images/fish-placeholder.jpg" alt="鱼类" class="card-image">
+                            </div>
+                            <div class="card-content">
+                                <h4>鱼类大全</h4>
+                                <p>所有鱼类的详细信息和钓鱼技巧</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="content-card">
+                        <a href="pages/wiki-template.html?type=house">
+                            <div class="card-image-container">
+                                <img src="images/house-placeholder.jpg" alt="房型" class="card-image">
+                            </div>
+                            <div class="card-content">
+                                <h4>房型大全</h4>
+                                <p>各种房屋类型和装修风格</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="content-card">
+                        <a href="pages/wiki-template.html?type=event">
+                            <div class="card-image-container">
+                                <img src="images/event-placeholder.jpg" alt="活动" class="card-image">
+                            </div>
+                            <div class="card-content">
+                                <h4>活动大全</h4>
+                                <p>最新活动信息和奖励详情</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="content-card">
+                        <a href="pages/wiki-template.html?type=crop">
+                            <div class="card-image-container">
+                                <img src="images/crop-placeholder.jpg" alt="农作物" class="card-image">
+                            </div>
+                            <div class="card-content">
+                                <h4>农作物大全</h4>
+                                <p>各种作物的种植和收获指南</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="content-card">
+                        <a href="pages/wiki-template.html?type=animal">
+                            <div class="card-image-container">
+                                <img src="images/animal-placeholder.jpg" alt="动物" class="card-image">
+                            </div>
+                            <div class="card-content">
+                                <h4>动物大全</h4>
+                                <p>农场动物的饲养和管理方法</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="content-card">
+                        <a href="pages/wiki-template.html?type=pet">
+                            <div class="card-image-container">
+                                <img src="images/pet-placeholder.jpg" alt="宠物" class="card-image">
+                            </div>
+                            <div class="card-content">
+                                <h4>宠物大全</h4>
+                                <p>可爱宠物的获取和培养技巧</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="content-card">
+                        <a href="pages/wiki-template.html?type=forest">
+                            <div class="card-image-container">
+                                <img src="images/forest-placeholder.jpg" alt="森林" class="card-image">
+                            </div>
+                            <div class="card-content">
+                                <h4>森林大全</h4>
+                                <p>森林探险和资源收集攻略</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="content-card">
+                        <a href="pages/wiki-template.html?type=npc">
+                            <div class="card-image-container">
+                                <img src="images/npc-placeholder.jpg" alt="NPC" class="card-image">
+                            </div>
+                            <div class="card-content">
+                                <h4>NPC大全</h4>
+                                <p>所有NPC角色的介绍和任务信息</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h4>🔥 热门排行</h4>
+                    <div id="hotRanking" class="hot-ranking">
+                        <div class="loading">加载中...</div>
+                    </div>
+                </div>
+                <div class="sidebar-section">
+                    <h4>📊 统计信息</h4>
+                    <div id="statsPanel" class="stats-panel">
+                        <div class="loading">加载中...</div>
+                    </div>
+                </div>
+                <div class="sidebar-section activity-section">
+                    <a href="https://www.xiaohongshu.com/discovery/item/69b118ce0000000022020c48?source=webshare&xhsshare=pc_web&xsec_token=ABKfjNr3pUXqfVWmBrb30SPC1QRgTTx-kY_YTFImiPd6M=&xsec_source=pc_share" target="_blank">
+                        <div class="activity-text">
+                            <h4>📢 3月12日更新公告</h4>
+                            <p>查看最新游戏更新内容</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-section activity-section">
+                    <a href="https://www.xiaohongshu.com/discovery/item/69aaa733000000002202c81c?source=webshare&xhsshare=pc_web&xsec_token=ABB0c7DxpOBgYjc7xWa6J4jomG8ujqeu6CtxBYIcQJBHE=&xsec_source=pc_share" target="_blank">
+                        <div class="activity-text">
+                            <h4>🎡 皮皮园游会报名</h4>
+                            <p>线下见面会正式开始报名</p>
+                        </div>
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 皮卡堂维基百科 - 非官方粉丝网站</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
